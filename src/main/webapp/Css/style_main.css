@@ -1,0 +1,52 @@
+.main {
+    background-color: #F5F5F5;
+    width: 1000px;
+    padding: 20px 20px 0px;
+    border-radius: 40px;
+    margin: 50px auto;
+    font-family: Verdana, sans-serif;    
+}
+
+.description {
+    width: 1000px;
+    height: auto;
+    text-align: center;
+}
+
+.title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+.messages {
+    text-align: center;
+}
+
+.table {
+    margin: auto;
+    text-align:center;
+    border: 1px solid black;
+    border-spacing: 1px;    
+    width: 900px;
+}
+
+th {
+    padding: 2px;
+    border: 1px solid #333;
+    background: #CCC;
+}
+
+td {
+    padding: 2px;
+    border: 1px solid #333;
+    height: 20px;
+}
+
+
+.author {
+    font-size: 15px;
+    color:  #DCDCDC;
+    padding: 10px;    
+    text-align: center;
+}
