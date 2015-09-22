@@ -1,3 +1,6 @@
+<%@page import="com.busdmv.backend.beans.Messages"%>
+<%@page import="com.busdmv.backend.beans.MessagesList"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
     <head>
@@ -73,6 +76,17 @@
                 </table>
 
             </div>
+
+            <h4>Список авторов:</h4>
+            <ul class="nav">
+                <% MessagesList messagesList = new MessagesList();
+                    for (Messages messages : messagesList.getMessagesList()) {
+                %>
+                <li><a href="#"><%=messages.getClientId()%></a></li>
+
+                <%}%>
+            </ul>
+
 
             <div>
                 <p class="author">Разработчик: Бусыгин Дмитрий, 2015 г.</p>

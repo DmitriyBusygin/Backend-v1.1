@@ -1,23 +1,29 @@
 package com.busdmv.backend.beans;
 
 import com.busdmv.backend.db.DBWorker;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MessagesList {
-        
+
     private ArrayList<Messages> messagesList = new ArrayList<Messages>();
 
-    public ArrayList<Messages> getMessages() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-       
+    public ArrayList<Messages> getMessages() {
         Statement stmt = null;
-        ResultSet rs = null;       
+        ResultSet rs = null;
+        Connection conn = null;
 
         String query = "select * from messages";
         try {
-            stmt = DBWorker.getConnection().createStatement();            
+            
+            //conn = DBWorker.getConnection();
+
+            stmt = conn.createStatement();
             rs = stmt.executeQuery(query);
 
             while (rs.next()) {
@@ -29,7 +35,7 @@ public class MessagesList {
             }
 
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            Logger.getLogger(MessagesList.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 if (stmt != null) {
@@ -37,15 +43,19 @@ public class MessagesList {
                 }
                 if (rs != null) {
                     rs.close();
-                }                
+                }
+                if (conn != null) {
+                    conn.close();
+                }
             } catch (SQLException ex) {
-                ex.printStackTrace();
+                Logger.getLogger(MessagesList.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+
         return messagesList;
     }
 
-    public ArrayList<Messages> getMessagesList() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+    public ArrayList<Messages> getMessagesList() {
         if (!messagesList.isEmpty()) {
             return messagesList;
         } else {
