@@ -14,7 +14,7 @@ public class DBWorker {
     private static Statement st = null;
     private static ResultSet rs = null;
 
-    public static void main(String[] args) {
+    public static Connection getConnection() {
         try {
             //Загружаем драйвер
             Class.forName("org.postgresql.Driver").newInstance();
@@ -57,7 +57,7 @@ public class DBWorker {
                 Logger.getLogger(DBWorker.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        //return con;
+        return con;
     }
 
 }

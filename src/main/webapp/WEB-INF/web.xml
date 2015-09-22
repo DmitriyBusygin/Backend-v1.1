@@ -10,7 +10,7 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
     <resource-ref>
-        <res-ref-name>jdbc/dmitry.busugin</res-ref-name>
+        <res-ref-name>jdbc/Backend</res-ref-name>
         <res-type>javax.sql.DataSource</res-type>
         <res-auth>Container</res-auth>
         <res-sharing-scope>Shareable</res-sharing-scope>

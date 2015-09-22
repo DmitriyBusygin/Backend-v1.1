@@ -21,7 +21,7 @@ public class MessagesList {
         String query = "select * from messages";
         try {
             
-            //conn = DBWorker.getConnection();
+            conn = DBWorker.getConnection();
 
             stmt = conn.createStatement();
             rs = stmt.executeQuery(query);

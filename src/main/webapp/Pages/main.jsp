@@ -77,12 +77,14 @@
 
             </div>
 
-            <h4>Список авторов:</h4>
+            <h4>Список сообщений:</h4>
             <ul class="nav">
                 <% MessagesList messagesList = new MessagesList();
                     for (Messages messages : messagesList.getMessagesList()) {
                 %>
+                <li><a href="#"><%=messages.getId()%></a></li>
                 <li><a href="#"><%=messages.getClientId()%></a></li>
+                <li><a href="#"><%=messages.getMessage()%></a></li>
 
                 <%}%>
             </ul>
