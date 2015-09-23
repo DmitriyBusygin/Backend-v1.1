@@ -76,7 +76,7 @@
                 </table>
 
             </div>
-
+            
             <h4>Список сообщений:</h4>
             <ul class="nav">
                 <% MessagesList messagesList = new MessagesList();

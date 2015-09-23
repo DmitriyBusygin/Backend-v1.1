@@ -6,6 +6,9 @@ public class Messages {
     private String clientId;
     private String message;
 
+    public Messages() {
+    }
+
     // Id
     public void setId(int id) {
         this.id = id;

@@ -17,7 +17,7 @@ public class DBWorker {
     public static Connection getConnection() {
         try {
             //Загружаем драйвер
-            Class.forName("org.postgresql.Driver").newInstance();
+            Class.forName("org.postgresql.Driver");
             System.out.println("Драйвер подключен");
 
             //Создаём соединение
@@ -32,11 +32,11 @@ public class DBWorker {
             //result это указатель на первую строку с выборки
             //чтобы вывести данные мы будем использовать 
             //метод next() , с помощью которого переходим к следующему элементу
-            while (rs.next()) {
-                System.out.println(rs.getString(1)
-                        + "   \t" + rs.getString(2)
-                        + "   \t" + rs.getString(3));
-            }
+//            while (rs.next()) {
+//                System.out.println(rs.getString(1)
+//                        + "   \t" + rs.getString(2)
+//                        + "   \t" + rs.getString(3));
+//            }
         } catch (Exception ex) {
             System.out.println("Не удалось соединиться с БД");
             Logger.getLogger(DBWorker.class.getName()).log(Level.SEVERE, null, ex);

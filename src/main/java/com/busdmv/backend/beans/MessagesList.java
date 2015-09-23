@@ -1,6 +1,7 @@
 package com.busdmv.backend.beans;
 
 import com.busdmv.backend.db.DBWorker;
+import com.busdmv.backend.db.Database;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
