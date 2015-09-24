@@ -1,30 +1,15 @@
 package com.busdmv.backend.db;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
+import java.sql.*;
 
 public class Database {
-    
-private static Connection conn;
-private static InitialContext ic;
-private static DataSource ds;
 
-public static Connection getConnection() {
-try {
-ic = new InitialContext();
-ds = (DataSource) ic.lookup("java:comp/env/jdbc/Backend");
-conn = ds.getConnection();
-} catch (SQLException ex) {
-Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
-} catch (NamingException ex) {
-Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
-}
+    private static final String URL = "jdbc:postgresql://localhost:5432/dmitry.busugin";
+    private static final String USERNAME = "dmitry.busugin";
+    private static final String PASSWORD = "password";
 
-return conn;
-}
+    public static Connection getConnection() throws ClassNotFoundException, SQLException {
+        Class.forName("org.postgresql.Driver");
+        return DriverManager.getConnection(URL, USERNAME, PASSWORD);
+    }
 }

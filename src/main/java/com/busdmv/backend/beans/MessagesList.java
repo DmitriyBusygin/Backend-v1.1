@@ -1,31 +1,22 @@
 package com.busdmv.backend.beans;
 
-import com.busdmv.backend.db.DBWorker;
 import com.busdmv.backend.db.Database;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class MessagesList {
 
-    private ArrayList<Messages> messagesList = new ArrayList<Messages>();
+    private final ArrayList<Messages> messagesList = new ArrayList<>();
+    private final String query = "select * from messages";
 
-    public ArrayList<Messages> getMessages() {
-        Statement stmt = null;
-        ResultSet rs = null;
-        Connection conn = null;
+    public ArrayList<Messages> getMessages() throws ClassNotFoundException, SQLException {
 
-        String query = "select * from messages";
-        try {
-            
-            conn = DBWorker.getConnection();
-
-            stmt = conn.createStatement();
-            rs = stmt.executeQuery(query);
+        try (Connection conn = Database.getConnection();
+                PreparedStatement ps = conn.prepareStatement(query);
+                ResultSet rs = ps.executeQuery();) {
 
             while (rs.next()) {
                 Messages messages = new Messages();
@@ -34,29 +25,11 @@ public class MessagesList {
                 messages.setMessage(rs.getString("message"));
                 messagesList.add(messages);
             }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(MessagesList.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                if (stmt != null) {
-                    stmt.close();
-                }
-                if (rs != null) {
-                    rs.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(MessagesList.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
-
         return messagesList;
     }
 
-    public ArrayList<Messages> getMessagesList() {
+    public ArrayList<Messages> getMessagesList() throws ClassNotFoundException, SQLException {
         if (!messagesList.isEmpty()) {
             return messagesList;
         } else {

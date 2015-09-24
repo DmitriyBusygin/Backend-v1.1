@@ -24,8 +24,7 @@
 }
 
 .table {
-    margin: auto;
-    text-align:center;
+    margin: auto;   
     border: 1px solid black;
     border-spacing: 1px;    
     width: 900px;

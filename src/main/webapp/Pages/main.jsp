@@ -62,33 +62,20 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <% MessagesList messagesList = new MessagesList();
+                            for (Messages messages : messagesList.getMessagesList()) {
+                        %>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>                        
+                            <td><%=messages.getId()%></td>
+                            <td><%=messages.getClientId()%></td>
+                            <td><%=messages.getMessage()%></td>
+                        </tr>   
+                        <%}%>
+
                     </tbody>
                 </table>
 
             </div>
-            
-            <h4>Список сообщений:</h4>
-            <ul class="nav">
-                <% MessagesList messagesList = new MessagesList();
-                    for (Messages messages : messagesList.getMessagesList()) {
-                %>
-                <li><a href="#"><%=messages.getId()%></a></li>
-                <li><a href="#"><%=messages.getClientId()%></a></li>
-                <li><a href="#"><%=messages.getMessage()%></a></li>
-
-                <%}%>
-            </ul>
-
 
             <div>
                 <p class="author">Разработчик: Бусыгин Дмитрий, 2015 г.</p>
