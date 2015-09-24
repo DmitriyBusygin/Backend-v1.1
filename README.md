@@ -1,5 +1,5 @@
 Реализовал вывод данных из БД через jsp страницу:
-1. Был изменнён класс Database.java подключения к БД и класс MessagesList.java получения данных из БД.
+1. Был изменён класс Database.java подключения к БД и класс MessagesList.java получения данных из БД.
 Дамп базы данных https://github.com/DmitriyBusygin/PostgreSQL
 
 Дальнейшие действия:
